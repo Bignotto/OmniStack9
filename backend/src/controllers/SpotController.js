@@ -4,6 +4,10 @@ const User = require('../models/User');
 module.exports = {
     async index(req,res) {
         //TODO: aula 2 - 1:14:00
+        const { tech } = req.query;
+        const spots = await Spot.find({ techs : tech});
+
+        return res.json(spots);
     },
 
     async store(req,res) {

@@ -7,6 +7,8 @@ const upload = multer(uploadConfig);
 
 const SessionController = require('./controllers/SessionController');
 const SpotController = require('./controllers/SpotController');
+const DashboardController = require('./controllers/DashboardController');
+
 
 routes.get('/', (req,res) => {
     return res.send('Deu certo!');
@@ -14,6 +16,9 @@ routes.get('/', (req,res) => {
 
 routes.post('/session', SessionController.store);
 
-routes.post('/spot', upload.single('thumbnail'), SpotController.store);
+routes.post('/spots', upload.single('thumbnail'), SpotController.store);
+routes.get('/spots', SpotController.index);
+
+routes.get('/dashboard', DashboardController.show);
 
 module.exports = routes;
