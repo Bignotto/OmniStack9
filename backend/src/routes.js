@@ -15,7 +15,7 @@ routes.get('/', (req,res) => {
     return res.send('Deu certo!');
 });
 
-routes.post('/session', SessionController.store);
+routes.post('/sessions', SessionController.store);
 
 routes.post('/spots', upload.single('thumbnail'), SpotController.store);
 routes.get('/spots', SpotController.index);
